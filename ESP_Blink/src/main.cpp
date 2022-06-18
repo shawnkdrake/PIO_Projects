@@ -17,7 +17,9 @@
 
 void setup()
 {
-  // Initialize LED pin as an output.
+ Serial.begin(19200);
+ Serial.println("Start");
+   // Initialize LED pin as an output.
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
@@ -25,13 +27,13 @@ void loop()
 {
   // Set the LED HIGH
   digitalWrite(LED_BUILTIN, HIGH);
-
+  Serial.println("The LED is Off!");
   // Wait for a second
   delay(1000);
 
   // Set the LED LOW
   digitalWrite(LED_BUILTIN, LOW);
-
+  Serial.println("The LED is On!");
    // Wait for a second
   delay(1000);
 }
