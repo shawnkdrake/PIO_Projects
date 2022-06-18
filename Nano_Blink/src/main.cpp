@@ -2,7 +2,7 @@
 #define BUILTIN 13
 
 void setup() {
-  Serial.begin(19200);                 // put your setup code here, to run once:
+  Serial.begin(9600);                 // put your setup code here, to run once:
   Serial.println("Start");
     pinMode(BUILTIN, OUTPUT);
   
