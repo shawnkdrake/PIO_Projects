@@ -20,6 +20,20 @@ int degreePerRevolution = 5.625;    // degree per revolution
  */
 AccelStepper stepper(AccelStepper::HALF4WIRE, motorPin1, motorPin3, motorPin2, motorPin4);
 
+/*
+ * Converts degrees to steps
+ * 
+ * 28BYJ-48 motor has 5.625 degrees per step
+ * 360 degrees / 5.625 = 64 steps per revolution
+ * 
+ * Example with degToSteps(45):
+ * (64 / 5.625) * 45 = 512 steps
+ */
+float degToSteps(float deg) {
+  return (stepsPerRevolution / degreePerRevolution) * deg;
+}
+
+
 void setup() {
   Serial.begin(9600);               // initialise the serial monitor
 
@@ -61,15 +75,4 @@ void loop() {
 
 }
 
-/*
- * Converts degrees to steps
- * 
- * 28BYJ-48 motor has 5.625 degrees per step
- * 360 degrees / 5.625 = 64 steps per revolution
- * 
- * Example with degToSteps(45):
- * (64 / 5.625) * 45 = 512 steps
- */
-float degToSteps(float deg) {
-  return (stepsPerRevolution / degreePerRevolution) * deg;
-}
+
